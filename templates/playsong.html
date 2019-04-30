@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--Include CSS file-->
+	<link href="{{ url_for('static', filename='css/list.css') }}"
+          type="text/css" rel="stylesheet" id="style-var">
+
+	<!--Include jQuery library-->
+    <script type="text/javascript"
+        src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+	<!--Include Bootstrap libraries-->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+        rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}"
+        rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/bootstrap-slider.min.css')}}"
+        rel="stylesheet" type="text/css">
+
+	<!--Include js to handle MIDI playback controls-->
+	<script type="text/javascript"
+        src="{{ url_for('static', filename='js/playsong.js') }}"></script>
+
+	<!--Extra header info-->
+    <meta charset="UTF-8">
+    <title>Player Piano, 19363</title>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 text-center">
+				<h1 id="songName-field">{{song_name}}</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-2 col-xs-offset-2 text-center">
+				<button class="btn btn-primary btn-large btn-dropshadow">
+					<span id="pause" class="glyphicon glyphicon-pause"
+						  aria-hidden="true">
+					</span>
+				</button>
+			</div>
+			<div class="col-xs-4 text-center">
+				<button class="btn btn-primary btn-large btn-dropshadow">
+					<span id="play" class="glyphicon glyphicon-play"
+						  aria-hidden="true">
+					</span>
+				</button>
+			</div>
+			<div class="col-xs-2 text-center">
+				<button class="btn btn-primary btn-large btn-dropshadow">
+					<span id="stop" class="glyphicon glyphicon-stop"
+						  aria-hidden="true">
+					</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2 text-center">
+				<h3>Tempo:
+
+					<!--BPM MUST BE PICKED OUT OF CHOSEN SONG'S INFORMATION-->
+					<input type="number" id="BPM-field" value=90
+						   style="width: 75px"> BPM
+				</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2 text-center">
+				<h3>Time:</h3>
+
+				<!--CURRENT TIME NEEDS TO BE ALWAYS UPDATING WHEN PLAYING-->
+				<b id="songCurrentTime">0:00</b>
+				<input id="time-slider" name="time-slider" type="range"
+					   value="0" data-slider-min="0" data-slider-step="1">
+				<b id="songEndTime"></b>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2" id="tracks-checkboxes">
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

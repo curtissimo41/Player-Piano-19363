@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!--Include CSS file-->
+	<link href="{{ url_for('static', filename='css/list.css') }}"
+          type="text/css" rel="stylesheet" id="style-var">
+
+	<!--Include jQuery library-->
+    <script type="text/javascript"
+        src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+	<!--Include Bootstrap library-->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+        rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}"
+        rel="stylesheet" type="text/css">
+
+	<!--Include js to get all songs in midifiles folder-->
+	<script type="text/javascript"
+        src="{{ url_for('static', filename='js/getmidis.js') }}"></script>
+
+	<!--Extra header info-->
+    <meta charset="UTF-8">
+    <title>Player Piano, 19363</title>
+</head>
+
+
+<!--The Good Stuff-->
+<body>
+	<div class="container-fluid">
+        <div class="row heading-row">
+            <div class="col-xs-6 col-xs-offset-3 text-center">
+                <h1>Select a Song</h1>
+            </div>
+            <div class="col-xs-3 text-right upload-btn" data-toggle="modal">
+                <h1>
+					<span class="glyphicon glyphicon-upload" aria-hidden="true">
+					</span>
+				</h1>
+            </div>
+        </div>
+        <div class="row song-listing">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+				<form method="post" action="{{ url_for('playsong.playsong_view') }}">
+					<!--Show each MIDI in midi file-->
+					<span id="midifiles"></span>
+				</form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+How to Use
+-------------------------------------------------------------------------------
+    The web interface runs on Python 3, using Flask to handle the server side.
+In order to run the interface:
+    * open up the Terminal and cd into the top layer of the code directory
+    * Call the command 'python3 app.py'. This runs the main controller file that
+      Flask uses to get the server up and running.
+    * Open your browser and visit 'http://0.0.0.0:8080/' to interact with the
+      interface
+
+
+
+
+To-Do
+-------------------------------------------------------------------------------
+-Pause & Stop buttons on interface need to work with playback on Pi
+-Timing scroll bar on playback page needs to start at 0:00 and:
+    * Continuously update while song is playing
+    * Move playback to chosen point on scroll bar when it is moved
+-Different channels (tracks) need to be enabled/disabled when checkboxes are
+ checked/unchecked
+-Tempo of song playback needs to be changed depending on entered value
+
+-UI needs to be cleaned up (optional)
